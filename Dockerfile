@@ -35,4 +35,4 @@ COPY external_program.py player.py server.py demo.py demo_2.py blockchain_interf
 
 RUN mkdir -p /app/output
 
-CMD ["python3", "demo_2.py"]
+CMD ["python3", "demo.py"]
