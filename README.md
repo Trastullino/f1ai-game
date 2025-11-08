@@ -1,7 +1,13 @@
+# F1-AI Racing Game - System Architecture
+
+## Quick demo run
+docker build -t f1ai-racing .
+docker run --rm f1ai-racing  
+
+This will run demo.py
+For smart contract implementation use demo_2.py
+
 # F1-AI Racing Game - Complete Project Index
-
-
-
 
 ### 📦 Core Implementation Files
 
@@ -17,7 +23,7 @@
 #### Smart Contract
 | File | Description | Lines | Purpose |
 |------|-------------|-------|---------|
-| **[F1AIRacing.sol](F1AIRacing.sol)** | Solidity contract | ~325 | Manages tokens, races, and prizes on-chain |
+| **[F1AIRacing.sol](F1AIRacing.sol)** | Solidity contract | ~325 |Stores registered encrypted cars|
 
 ### 📚 Documentation Files
 
@@ -107,7 +113,6 @@
 
 **Fairness:**
 - `server.py`: Deterministic calculations
-- `F1AIRacing.sol`: Transparent prizes
 - All: Verifiable results
 
 ## 📊 Project Statistics
