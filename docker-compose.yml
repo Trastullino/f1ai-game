@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  # Web UI Service (Flask + React)
+  f1ai-web:
+    build:
+      context: .
+      dockerfile: Dockerfile.web
+    container_name: f1ai-racing-web
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
+
+  # CLI Demo Service
+  f1ai-game:
+    build: .
+    container_name: f1ai-racing-game
+    volumes:
+      - ./output:/app/output
+    environment:
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
+    command: python3 demo.py
+    profiles:
+      - cli
+
+  # Interactive shell for development
+  f1ai-dev:
+    build: .
+    container_name: f1ai-dev
+    volumes:
+      - ./output:/app/output
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+    profiles:
+      - dev
